@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import com.journal.entity.journalEntry;
 import org.springframework.web.bind.annotation.*;
@@ -17,13 +19,15 @@ public class journalEntryController {
    public List<journalEntry> getAll(){
        return new ArrayList<>(journalEntries.values());
    }
-   @PostMapping
-    public boolean createEntry(@RequestBody journalEntry myEntry){
-       journalEntries.put(myEntry.getId(),myEntry);
-       return true;
 
-   }
-   @GetMapping("/id/{myid}")
+
+    @PostMapping
+    public ResponseEntity<String> createEntry(@RequestBody journalEntry myEntry) {
+        journalEntries.put(myEntry.getId(), myEntry);
+        return new ResponseEntity<>("Entry created successfully", HttpStatus.CREATED); // 201 Created
+    }
+
+    @GetMapping("/id/{myid}")
     public journalEntry getbyid(@PathVariable Long myid){
        return journalEntries.get(myid);
 
@@ -32,5 +36,11 @@ public class journalEntryController {
     public journalEntry deletebyid(@PathVariable Long myid){
         return journalEntries.remove(myid);
 
+    }
+    @PutMapping("/id/{myid}")
+    public journalEntry updateJournal(@PathVariable Long myid,@RequestBody journalEntry myEntry){
+       journalEntries.put(myid,myEntry);
+
+       return journalEntries.get(myid);
     }
 }
