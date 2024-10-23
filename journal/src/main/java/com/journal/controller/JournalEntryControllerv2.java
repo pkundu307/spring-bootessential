@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/journal2")
 public class JournalEntryControllerv2 {
 
+
     @Autowired
     private JournalEntryService journalEntryService;
 
