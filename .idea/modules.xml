@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/journal.iml" filepath="$PROJECT_DIR$/.idea/journal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/journal/journal.iml" filepath="$PROJECT_DIR$/journal/journal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spring-bootessential.iml" filepath="$PROJECT_DIR$/.idea/spring-bootessential.iml" />
     </modules>
   </component>
 </project>
